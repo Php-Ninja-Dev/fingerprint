@@ -2,15 +2,15 @@
 function fingerPrint($result){
 	// Remove all accents. Compatibility for Spanish strings
 	$result = removeAccents($result);
-  // Every char to lowercase
+	// Every char to lowercase
 	$result = strtolower($result);
-  // Remove all chars that are not letters
-  $result = preg_replace('/[^ \w]+/', '', $result);
+	// Remove all chars that are not letters
+	$result = preg_replace('/[^ \w]+/', '', $result);
 	$words = explode(" ",$result);
-  // remove duplicates
-  $words = array_unique($words);
-  // the order of terms is important
-  sort($words);
+	// remove duplicates
+	$words = array_unique($words);
+	// the order of terms is important
+	sort($words);
 	// "-" to separate terms, but you can get rid of this
 	return implode("-",$words);
 }
